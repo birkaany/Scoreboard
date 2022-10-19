@@ -7,39 +7,52 @@
     <link rel="stylesheet" href="./css/main.css" />
     <title>Scoreboard Project</title>
   </head>
-  <body class="bg-gradient-to-r from-teal-700 to-teal-800 flex justify-center items-center min-h-screen font-primaryFont">
-    <main id="scoreboard" class="bg-teal-400 w-[30rem] rounded-2xl shadow-xl shadow-teal-900 flex items-center justify-evenly p-6 space-x-12">
-      <div id="homeBoard" class="flex flex-col justify-center items-center space-y-3">
-        <h2 class="text-4xl uppercase font-bold text-teal-700">Home</h2>
-        <p id="homeScore" class="font-scoreFont text-8xl bg-teal-600 border-2 border-teal-300 text-teal-200 p-6 w-40 text-center leading-none rounded-xl">0</p>
-        <div class="flex space-x-3">
-          <button class="homePlus1 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200" onclick="sumNumber('home', 1)">
-            +1
-          </button>
-          <button class="homePlus2 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200" onclick="sumNumber('home', 2)">
-            +2
-          </button>
-          <button class="homePlus3 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200" onclick="sumNumber('home', 3)">
-            +3
-          </button>
+  <body class="bg-gradient-to-r from-teal-700 to-teal-800 flex flex-col justify-center items-center max-w-full min-h-screen font-primaryFont overflow-hidden">
+    <main id="scoreboard" class="bg-teal-400 w-[30rem] rounded-2xl shadow-xl shadow-teal-900 flex flex-col items-center justify-evenly p-6 transition-all duration-700 absolute">
+      <div id="boards" class="flex justify-evenly w-full">
+        <div id="homeBoard" class="flex flex-col justify-center items-center space-y-3">
+          <h2 class="text-4xl uppercase font-bold text-teal-700">Home</h2>
+          <p id="homeScore" class="font-scoreFont text-8xl bg-teal-600 border-2 border-teal-300 text-teal-200 p-6 w-40 text-center leading-none rounded-xl">0</p>
+          <div class="flex space-x-3">
+            <button class="homePlus1 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200" onclick="sumNumber('home', 1)">
+              +1
+            </button>
+            <button class="homePlus2 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200" onclick="sumNumber('home', 2)">
+              +2
+            </button>
+            <button class="homePlus3 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200" onclick="sumNumber('home', 3)">
+              +3
+            </button>
+          </div>
+        </div>
+        <div id="awayBoard" class="flex flex-col justify-center items-center space-y-3">
+          <h2 class="text-4xl uppercase font-bold text-teal-700">Away</h2>
+          <p id="awayScore" class="font-scoreFont text-8xl bg-teal-600 border-2 border-teal-300 text-teal-200 p-6 w-40 text-center leading-none rounded-xl">0</p>
+          <div class="flex space-x-3">
+            <button onclick="sumNumber('away', 1)" class="awayPlus1 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200">
+              +1
+            </button>
+            <button onclick="sumNumber('away', 2)" class="awayPlus2 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200">
+              +2
+            </button>
+            <button onclick="sumNumber('away', 3)" class="awayPlus3 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200">
+              +3
+            </button>
+          </div>
         </div>
       </div>
-      <div id="awayBoard" class="flex flex-col justify-center items-center space-y-3">
-        <h2 class="text-4xl uppercase font-bold text-teal-700">Away</h2>
-        <p id="awayScore" class="font-scoreFont text-8xl bg-teal-600 border-2 border-teal-300 text-teal-200 p-6 w-40 text-center leading-none rounded-xl">0</p>
-        <div class="flex space-x-3">
-          <button onclick="sumNumber('away', 1)" class="awayPlus1 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200">
-            +1
-          </button>
-          <button onclick="sumNumber('away', 2)" class="awayPlus2 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200">
-            +2
-          </button>
-          <button onclick="sumNumber('away', 3)" class="awayPlus3 bg-teal-200 font-bold text-teal-700 p-2 leading-none rounded-md ease-in-out duration-150 hover:bg-teal-700 hover:text-teal-200">
-            +3
-          </button>
-        </div>
-      </div>
+      <button id="endGame" class="border-2 border-red-800 font-bold text-red-800 p-3 mt-8 leading-none rounded-md ease-in-out duration-150 hover:border-teal-700 hover:bg-teal-700 hover:text-teal-200">
+        End Game
+      </button>
     </main>
+    <section id="resultPage" class="bg-teal-400 w-[30rem] rounded-2xl shadow-xl shadow-teal-900 flex flex-col items-center justify-evenly p-6 transition-all duration-700 absolute scoreBoardOn">
+      <div id="result" class="text-2xl">Test</div>
+      <button
+        id="newGame"
+        class="border-2 border-teal-800 font-bold text-teal-800 p-3 mt-8 leading-none rounded-md ease-in-out duration-150 hover:border-teal-700 hover:bg-teal-700 hover:text-teal-200">
+        New Game
+      </button>
+    </section>
     <script src="./js/app.js"></script>
   </body>
 </html>

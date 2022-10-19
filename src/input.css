@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .scoreBoardOff {
+    @apply -translate-y-full opacity-0 pointer-events-none overflow-hidden;
+  }
+  .scoreBoardOn {
+    @apply translate-y-[500px] opacity-0 pointer-events-none overflow-hidden;
+  }
+}
